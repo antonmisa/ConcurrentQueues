@@ -6,7 +6,7 @@ namespace ConcurrentQueuesBenchmarks
 {
     public class BenchmarkBase
     {
-        private int _iterations = 100000;
+        private int _iterations = 1000000;
 
         public void TestEnqueue(QueueBase<string> queue, int threadCount)
         {

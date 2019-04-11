@@ -1,4 +1,9 @@
-``` ini
+# Concurrent-Queues
+Study about perfomance of queues with different kind of locks in multithreaded environment.
+Done on local machine and server.
+
+Benchmarks done by great tools BenchmarkDotNet, see version below.
+To install it just use nuget and find BenchmarkDotNet. Enjoy!
 
 BenchmarkDotNet=v0.11.5,  OS=Windows 7 SP1 (6.1.7601.0)
 Intel Core i5-4570S CPU 2.90GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
@@ -8,24 +13,20 @@ Frequency=2825644 Hz, Resolution=353.9016 ns, Timer=TSC
 
 
 ```
-|                                         Method |        Mean |      Error |     StdDev |
-|----------------------------------------------- |------------:|-----------:|-----------:|
-|               &#39;LockStack push with 10 threads&#39; |   234.13 ms |  4.6690 ms |  6.8437 ms |
-|            &#39;MonitorStack push with 10 threads&#39; |    31.91 ms |  0.1797 ms |  0.1593 ms |
-|           &#39;LockFreeStack push with 10 threads&#39; |    31.96 ms |  0.4401 ms |  0.4117 ms |
-|  &#39;ConcurrentStackWrapper push with 10 threads&#39; |    31.64 ms |  0.5471 ms |  0.5118 ms |
-|              &#39;LockStack push with 100 threads&#39; | 2,165.45 ms | 29.0961 ms | 25.7929 ms |
-|           &#39;MonitorStack push with 100 threads&#39; |   381.26 ms |  3.9956 ms |  3.5420 ms |
-|          &#39;LockFreeStack push with 100 threads&#39; |   382.80 ms |  3.7581 ms |  3.5153 ms |
-| &#39;ConcurrentStackWrapper push with 100 threads&#39; |   387.40 ms |  4.5857 ms |  3.8292 ms |
+|                                                  Method |       Mean |     Error |   StdDev |     Median |
+|-------------------------------------------------------- |-----------:|----------:|---------:|-----------:|
+|           QueueWrapper enqueue/dequeue with 2 threads   |   491.9 ms |  9.767 ms | 19.05 ms |   492.3 ms |
+|          LockFreeQueue enqueue/dequeue with 2 threads   |   583.9 ms | 16.427 ms | 47.13 ms |   570.0 ms |
+| ConcurrentQueueWrapper enqueue/dequeue with 2 threads   |   364.0 ms |  7.267 ms | 16.55 ms |   367.1 ms |
+|           QueueWrapper enqueue/dequeue with 4 threads   |   978.3 ms | 21.109 ms | 25.13 ms |   972.0 ms |
+|          LockFreeQueue enqueue/dequeue with 4 threads   | 1,519.8 ms | 30.093 ms | 51.10 ms | 1,515.1 ms |
+| ConcurrentQueueWrapper enqueue/dequeue with 4 threads   |   860.3 ms | 17.065 ms | 48.69 ms |   859.9 ms |
 
-|                                            Method |        Mean |      Error |     StdDev |
-|-------------------------------------------------- |------------:|-----------:|-----------:|
-|               &#39;LockStack pushpop with 10 threads&#39; |   425.15 ms |  8.2552 ms | 10.4402 ms |
-|            &#39;MonitorStack pushpop with 10 threads&#39; |    28.13 ms |  0.1221 ms |  0.1082 ms |
-|           &#39;LockFreeStack pushpop with 10 threads&#39; |    28.61 ms |  0.5461 ms |  0.5608 ms |
-|  &#39;ConcurrentStackWrapper pushpop with 10 threads&#39; |    28.51 ms |  0.3097 ms |  0.2746 ms |
-|              &#39;LockStack pushpop with 100 threads&#39; | 4,102.46 ms | 67.7666 ms | 63.3889 ms |
-|           &#39;MonitorStack pushpop with 100 threads&#39; |   267.58 ms |  2.1457 ms |  2.0071 ms |
-|          &#39;LockFreeStack pushpop with 100 threads&#39; |   266.41 ms |  2.4523 ms |  2.1739 ms |
-| &#39;ConcurrentStackWrapper pushpop with 100 threads&#39; |   264.22 ms |  3.2156 ms |  2.6852 ms |
+|                                                  Method |       Mean |     Error |    StdDev |     Median |
+|-------------------------------------------------------- |-----------:|----------:|----------:|-----------:|
+|           		QueueWrapper enqueue with 2 threads   |   486.6 ms |  6.754 ms |  6.318 ms |   488.0 ms |
+|          		   LockFreeQueue enqueue with 2 threads   |   643.4 ms | 12.398 ms | 15.226 ms |   645.2 ms |
+| 		  ConcurrentQueueWrapper enqueue with 2 threads   |   424.8 ms | 19.811 ms | 20.344 ms |   418.0 ms |
+|       		    QueueWrapper enqueue with 4 threads   | 1,013.0 ms | 21.459 ms | 63.273 ms |   980.0 ms |
+|          		   LockFreeQueue enqueue with 4 threads   | 1,432.8 ms | 28.213 ms | 43.084 ms | 1,439.1 ms |
+|    	  ConcurrentQueueWrapper enqueue with 4 threads   |   835.3 ms | 16.447 ms | 31.688 ms |   827.7 ms |

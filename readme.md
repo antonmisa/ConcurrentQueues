@@ -22,11 +22,12 @@ Frequency=2825644 Hz, Resolution=353.9016 ns, Timer=TSC
 |          LockFreeQueue enqueue/dequeue with 4 threads   | 1,519.8 ms | 30.093 ms | 51.10 ms | 1,515.1 ms |
 | ConcurrentQueueWrapper enqueue/dequeue with 4 threads   |   860.3 ms | 17.065 ms | 48.69 ms |   859.9 ms |
 
-|                                                  Method |       Mean |     Error |    StdDev |     Median |
-|-------------------------------------------------------- |-----------:|----------:|----------:|-----------:|
-|           		QueueWrapper enqueue with 2 threads   |   486.6 ms |  6.754 ms |  6.318 ms |   488.0 ms |
-|          		   LockFreeQueue enqueue with 2 threads   |   643.4 ms | 12.398 ms | 15.226 ms |   645.2 ms |
-| 		  ConcurrentQueueWrapper enqueue with 2 threads   |   424.8 ms | 19.811 ms | 20.344 ms |   418.0 ms |
-|       		    QueueWrapper enqueue with 4 threads   | 1,013.0 ms | 21.459 ms | 63.273 ms |   980.0 ms |
-|          		   LockFreeQueue enqueue with 4 threads   | 1,432.8 ms | 28.213 ms | 43.084 ms | 1,439.1 ms |
-|    	  ConcurrentQueueWrapper enqueue with 4 threads   |   835.3 ms | 16.447 ms | 31.688 ms |   827.7 ms |
+|                                              Method |       Mean |     Error |    StdDev |     Median |
+|---------------------------------------------------- |-----------:|----------:|----------:|-----------:|
+|           	QueueWrapper enqueue with 2 threads   |   486.6 ms |  6.754 ms |  6.318 ms |   488.0 ms |
+|          	   LockFreeQueue enqueue with 2 threads   |   643.4 ms | 12.398 ms | 15.226 ms |   645.2 ms |
+| 	  ConcurrentQueueWrapper enqueue with 2 threads   |   424.8 ms | 19.811 ms | 20.344 ms |   418.0 ms |
+|      		    QueueWrapper enqueue with 4 threads   | 1,013.0 ms | 21.459 ms | 63.273 ms |   980.0 ms |
+|      		   LockFreeQueue enqueue with 4 threads   | 1,432.8 ms | 28.213 ms | 43.084 ms | 1,439.1 ms |
+|  	  ConcurrentQueueWrapper enqueue with 4 threads   |   835.3 ms | 16.447 ms | 31.688 ms |   827.7 ms |
+
